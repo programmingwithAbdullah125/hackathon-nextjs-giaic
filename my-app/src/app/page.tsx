@@ -1,160 +1,298 @@
-import React from "react"
-import Image from "next/image"
-import Dashboard from "./components/dashboard"
- export default function Home(){
-    return(
-        <>
-        <div className="flex pl-2"> {/* Main container: Flex layout for TYPE, CATEGORY, and Image */}
+import Image from "next/image";
+import Link from "next/link";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+}
+ from "./components/ui/card";
 
-{/* First Section: TYPE and CATEGORY */}
-<div className="pl-2 border-2 border-white shadow-md p-4 w-72"> {/* Left section with border and padding */}
-  <h1 className="space-x-5 text-sm text-gray-600">TYPE</h1>
+export default function Home() {
+  return (
+    <div className="bg-[#f6f7f9] min-h-screen p-4 sm:p-6 lg:p-20 flex flex-col gap-10 font-[family-name:var(--font-geist-sans)]">
+     
+      <section className="first w-full flex flex-wrap sm:flex-nowrap gap-4 sm:gap-8 justify-center">
+        <Image src={"/Ads 1.png"} alt="" width={640} height={360} className="max-w-full" />
+        <Image src={"/Ads 2.png"} alt="" width={640} height={360} className="max-w-full" />
+      </section>
 
-  {/* Options for TYPE */}
-  {['Sport', 'SUV', 'MPV', 'Sedan', 'Coupe', 'Hatchback'].map((type, idx) => (
-    <div key={idx} className="flex mt-3 pl-2">
-      <label className="flex">
-        <input type="checkbox" />
-        <p className="pl-1">{type}</p>
-      </label>
-      <p className="text-gray-500 text-sm pl-1">({idx * 2 + 10})</p>
-</div>
-  ))}
+    
+      <section className="w-full flex flex-wrap sm:flex-nowrap items-center justify-center sm:justify-between gap-4 sm:gap-8">
+        <Image src={"/Pick - Up.png"} alt="" width={582} height={132} className="max-w-full" />
+        <Image src={"/Switch.png"} alt="" width={60} height={60} className="max-w-full" />
+        <Image src={"/Drop - Off.png"} alt="" width={582} height={132} className="max-w-full" />
+      </section>
 
-  {/* CATEGORY Section */}
-  <h1 className="space-x-5 text-sm text-gray-600 mt-5">CATEGORY</h1>
-
-  {/* Options for CATEGORY */}
-  {['2 Person', '4 Person', '6 Person', '8 or More'].map((category, idx) => (
-    <div key={idx} className="flex mt-3 pl-2">
-      <label className="flex">
-        <input type="checkbox" />
-        <p className="pl-1">{category}</p>
-      </label>
-      <p className="text-gray-500 text-sm pl-1">({idx * 2 + 10})</p>
-    </div>
-  ))}
-
-  {/* PRICE Range */}
-  <div className="mt-5">
-    <h1 className="space-x-5 text-sm text-gray-600 mt-5">PRICE</h1>
-    <Image src="/priceRanger.png" alt="price ranger" width={180} height={20} className="mt-5 pl-1" />
-    <p className="text-gray-500 font-semibold mt-1">Max. $100.00</p>
-  </div>
-</div>
-
-{/* Second Section: Images */}
-<div className="pl-4"> {/* Right section for images */}
-  <div className="flex flex-col items-center justify-center space-y-4"> {/* Flex column layout for images */}
-
-    {/* Main car image */}
-    <div className="relative rounded-[5%] w-[300px]">
-      <Image src="/View.png" alt="view car" width={350} height={300} className="mt-5" />
-    </div>
-
-    {/* Smaller car images */}
-    <div className="flex space-x-4">
-      {['car.png', 'carSeat.png', 'underCar.png'].map((img, idx) => (
-        <div key={idx} className="rounded-[5%] w-[90px]">
-          <Image src={`/${img}`} alt="small car image" width={100} height={100} />
+      
+      <section className="popular w-full flex flex-col gap-4">
+        <div className="first w-full flex items-center justify-between">
+          <h1 className="text-gray-500 text-lg sm:text-xl">Popular Car</h1>
+          <Link href={"/categories"}>
+            <h1 className="text-[#3563e9] font-bold hover:underline decoration-[#3563e9]">
+              View All
+            </h1>
+          </Link>
         </div>
-      ))}
+        <div className="sec grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        
+          <Card className="w-full max-w-[304px] mx-auto h-auto flex flex-col justify-between">
+            <CardHeader>
+              <CardTitle className="w-full flex items-center justify-between">
+                Koenigsegg <Image src={"/heart.png"} alt="" width={20} height={20} />
+              </CardTitle>
+              <CardDescription>Sport</CardDescription>
+            </CardHeader>
+            <CardContent className="w-full flex flex-col items-center justify-center gap-4">
+              <Image src={"/car.png"} alt="" width={220} height={68} />
+              <Image src={"/Spesification.png"} alt="" width={256} height={24} />
+            </CardContent>
+            <CardFooter className="w-full flex items-center justify-between">
+              <p>
+                $99.00/<span className="text-gray-500">day</span>
+              </p>
+              <button className="bg-[#3563e9] p-2 text-white rounded-md">Rent Now</button>
+            </CardFooter>
+          </Card>
+
+         
+          <Card className="w-full max-w-[304px] mx-auto h-auto flex flex-col justify-between">
+            <CardHeader>
+              <CardTitle className="w-full flex items-center justify-between">
+                NissanGT - R <Image src={"/heart 2.png"} alt="" width={20} height={20} />
+              </CardTitle>
+              <CardDescription>Sport</CardDescription>
+            </CardHeader>
+            <CardContent className="w-full flex flex-col items-center justify-center gap-4">
+              <Image src={"/car (1).png"} alt="" width={220} height={68} />
+              <Image src={"/Spesification.png"} alt="spesificaton" width={256} height={24} />
+            </CardContent>
+            <CardFooter className="w-full flex items-center justify-between">
+              <p>
+                $99.00/<span className="text-gray-500">day</span>
+              </p>
+              <Link href={'/payment'}><button className="bg-[#3563e9] p-2 text-white rounded-md">Rent Now</button></Link>
+            </CardFooter>
+          </Card>
+
+        
+          <Card className="w-full max-w-[304px] mx-auto h-auto flex flex-col justify-between">
+            <CardHeader>
+              <CardTitle className="w-full flex items-center justify-between">
+                Rolls-Royce <Image src={"/heart.png"} alt="" width={20} height={20} />
+              </CardTitle>
+              <CardDescription>Sedan</CardDescription>
+            </CardHeader>
+            <CardContent className="w-full flex flex-col items-center justify-center gap-4">
+              <Image src={"/car.png"} alt="" width={220} height={68} />
+              <Image src={"/Spesification.png"} alt="" width={256} height={24} />
+            </CardContent>
+            <CardFooter className="w-full flex items-center justify-between">
+              <p>
+                $99.00/<span className="text-gray-500">day</span>
+              </p>
+              <button className="bg-[#3563e9] p-2 text-white rounded-md">Rent Now</button>
+            </CardFooter>
+          </Card>
+
+     
+          <Card className="w-full max-w-[304px] mx-auto h-auto flex flex-col justify-between">
+            <CardHeader>
+              <CardTitle className="w-full flex items-center justify-between">
+                NissanGT - R <Image src={"/heart 2.png"} alt="" width={20} height={20} />
+              </CardTitle>
+              <CardDescription>Sport</CardDescription>
+            </CardHeader>
+            <CardContent className="w-full flex flex-col items-center justify-center gap-4">
+              <Image src={"/car (1).png"} alt="" width={220} height={68} />
+              <Image src={"/Spesification.png"} alt="" width={256} height={24} />
+            </CardContent>
+            <CardFooter className="w-full flex items-center justify-between">
+              <p>
+                $99.00/<span className="text-gray-500">day</span>
+              </p>
+              <button className="bg-[#3563e9] p-2 text-white rounded-md">Rent Now</button>
+            </CardFooter>
+          </Card>
+        </div>
+      </section>
+
+
+      <section className="popular w-full flex flex-col gap-4">
+        <h1 className="text-gray-500 text-lg sm:text-xl">Recommendation Car</h1>
+        <div className="sec grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          
+          <Card className="w-full max-w-[304px] mx-auto h-auto flex flex-col justify-between">
+            <CardHeader>
+              <CardTitle className="w-full flex items-center justify-between">
+                All New Rush <Image src={"/heart.png"} alt="" width={20} height={20} />
+              </CardTitle>
+              <CardDescription>SUV</CardDescription>
+            </CardHeader>
+            <CardContent className="w-full flex flex-col items-center justify-center gap-4">
+              <Image src={"/suv.png"} alt="" width={220} height={68} />
+              <Image src={"/Spesification.png"} alt="" width={256} height={24} />
+            </CardContent>
+            <CardFooter className="w-full flex items-center justify-between">
+              <p>
+                $99.00/<span className="text-gray-500">day</span>
+              </p>
+              <button className="bg-[#3563e9] p-2 text-white rounded-md">Rent Now</button>
+            </CardFooter>
+          </Card>
+
+          
+          <Card className="w-full max-w-[304px] mx-auto h-auto flex flex-col justify-between">
+            <CardHeader>
+              <CardTitle className="w-full flex items-center justify-between">
+                CR - V <Image src={"/heart 2.png"} alt="" width={20} height={20} />
+              </CardTitle>
+              <CardDescription>SUV</CardDescription>
+            </CardHeader>
+            <CardContent className="w-full flex flex-col items-center justify-center gap-4">
+              <Image src={"/suv (4).png"} alt="" width={220} height={68} />
+              <Image src={"/Spesification.png"} alt="" width={256} height={24} />
+            </CardContent>
+            <CardFooter className="w-full flex items-center justify-between">
+              <p>
+                $99.00/<span className="text-gray-500">day</span>
+              </p>
+              <button className="bg-[#3563e9] p-2 text-white rounded-md">Rent Now</button>
+            </CardFooter>
+          </Card>
+
+          
+          <Card className="w-full max-w-[304px] mx-auto h-auto flex flex-col justify-between">
+            <CardHeader>
+              <CardTitle className="w-full flex items-center justify-between">
+                All New Terios <Image src={"/heart.png"} alt="" width={20} height={20} />
+              </CardTitle>
+              <CardDescription>SUV</CardDescription>
+            </CardHeader>
+            <CardContent className="w-full flex flex-col items-center justify-center gap-4">
+              <Image src={"/suv (4).png"} alt="" width={220} height={68} />
+              <Image src={"/Spesification.png"} alt="" width={256} height={24} />
+            </CardContent>
+            <CardFooter className="w-full flex items-center justify-between">
+              <p>
+                $99.00/<span className="text-gray-500">day</span>
+              </p>
+              <button className="bg-[#3563e9] p-2 text-white rounded-md">Rent Now</button>
+            </CardFooter>
+          </Card>
+
+          
+          <Card className="w-full max-w-[304px] mx-auto h-auto flex flex-col justify-between">
+            <CardHeader>
+              <CardTitle className="w-full flex items-center justify-between">
+                CR - V <Image src={"/heart 2.png"} alt="" width={20} height={20} />
+              </CardTitle>
+              <CardDescription>SUV</CardDescription>
+            </CardHeader>
+            <CardContent className="w-full flex flex-col items-center justify-center gap-4">
+              <Image src={"/suv (4).png"} alt="" width={220} height={68} />
+              <Image src={"/Spesification.png"} alt="" width={256} height={24} />
+            </CardContent>
+            <CardFooter className="w-full flex items-center justify-between">
+              <p>
+                $99.00/<span className="text-gray-500">day</span>
+              </p>
+              <button className="bg-[#3563e9] p-2 text-white rounded-md">Rent Now</button>
+            </CardFooter>
+          </Card>
+        </div>
+        <div className="sec grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          
+          <Card className="w-full max-w-[304px] mx-auto h-auto flex flex-col justify-between">
+            <CardHeader>
+              <CardTitle className="w-full flex items-center justify-between">
+                MG ZX Exclusive <Image src={"/heart.png"} alt="" width={20} height={20} />
+              </CardTitle>
+              <CardDescription>SUV</CardDescription>
+            </CardHeader>
+            <CardContent className="w-full flex flex-col items-center justify-center gap-4">
+              <Image src={"/suv.png"} alt="" width={220} height={68} />
+              <Image src={"/Spesification.png"} alt="" width={256} height={24} />
+            </CardContent>
+            <CardFooter className="w-full flex items-center justify-between">
+              <p>
+                $99.00/<span className="text-gray-500">day</span>
+              </p>
+              <button className="bg-[#3563e9] p-2 text-white rounded-md">Rent Now</button>
+            </CardFooter>
+          </Card>
+
+          
+          <Card className="w-full max-w-[304px] mx-auto h-auto flex flex-col justify-between">
+            <CardHeader>
+              <CardTitle className="w-full flex items-center justify-between">
+                NEW MG ZS <Image src={"/heart 2.png"} alt="" width={20} height={20} />
+              </CardTitle>
+              <CardDescription>SUV</CardDescription>
+            </CardHeader>
+            <CardContent className="w-full flex flex-col items-center justify-center gap-4">
+              <Image src={"/suv.png"} alt="" width={220} height={68} />
+              <Image src={"/Spesification.png"} alt="" width={256} height={24} />
+            </CardContent>
+            <CardFooter className="w-full flex items-center justify-between">
+              <p>
+                $99.00/<span className="text-gray-500">day</span>
+              </p>
+              <button className="bg-[#3563e9] p-2 text-white rounded-md">Rent Now</button>
+            </CardFooter>
+          </Card>
+
+          
+          <Card className="w-full max-w-[304px] mx-auto h-auto flex flex-col justify-between">
+            <CardHeader>
+              <CardTitle className="w-full flex items-center justify-between">
+                MG ZX Excite <Image src={"/heart.png"} alt="" width={20} height={20} />
+              </CardTitle>
+              <CardDescription>SUV</CardDescription>
+            </CardHeader>
+            <CardContent className="w-full flex flex-col items-center justify-center gap-4">
+              <Image src={"/suv (4).png"} alt="" width={220} height={68} />
+              <Image src={"/Spesification.png"} alt="" width={256} height={24} />
+            </CardContent>
+            <CardFooter className="w-full flex items-center justify-between">
+              <p>
+                $99.00/<span className="text-gray-500">day</span>
+              </p>
+              <button className="bg-[#3563e9] p-2 text-white rounded-md">Rent Now</button>
+            </CardFooter>
+          </Card>
+
+          
+          <Card className="w-full max-w-[304px] mx-auto h-auto flex flex-col justify-between">
+            <CardHeader>
+              <CardTitle className="w-full flex items-center justify-between">
+                New MG ZS<Image src={"/heart 2.png"} alt="" width={20} height={20} />
+              </CardTitle>
+              <CardDescription>SUV</CardDescription>
+            </CardHeader>
+            <CardContent className="w-full flex flex-col items-center justify-center gap-4">
+              <Image src={"/suv (4).png"} alt="" width={220} height={68} />
+              <Image src={"/Spesification.png"} alt="" width={256} height={24} />
+            </CardContent>
+            <CardFooter className="w-full flex items-center justify-between">
+              <p>
+                $99.00/<span className="text-gray-500">day</span>
+              </p>
+              <button className="bg-[#3563e9] p-2 text-white rounded-md">Rent Now</button>
+            </CardFooter>
+          </Card>
+        </div>
+      </section>
+
+      <section className="button w-full text-center">
+        <Link href={"/categories"}>
+          <button className="bg-[#3563e9] px-4 py-2 text-white rounded-md mt-5">
+            Show More Cars
+          </button>
+        </Link>
+      </section>
     </div>
-  </div>
-
-</div>
-
-{/* Third Section: Review */}
-<div className="mt-5 pl-4"> {/* Main wrapper for review section */}
-<div className="bg-gray-100 pl-4 rounded-lg shadow-md space-y-4 w-1/2"> {/* Background and padding */}
-  
-  {/* Review Title */}
-  <div>
-  <h1 className="text-xl font-semibold text-gray-800">Nissan GT - R</h1>
-
-  {/* Review 1 */}
-  <div className="text-yellow-500">★★★★☆</div>
-  <div className="flex">440+ Reviewers</div>
-  </div>
-  <div>NISMO has become the embodiment of Nissan's outstanding performance, inspired by the most unforgiving proving ground, the "race track"</div>
-
-  {/* Tables with info */}
-  <div className="flex justify-between">
-    {/* Table 1 */}
-    <table className="border-collapse">
-      <tr>
-        <td>TypeCar</td>
-        <th>Sport</th>
-      </tr>
-      <tr>
-        <td>Steering</td>
-        <th className="pl-2">Manual</th>
-      </tr>
-    </table>
-
-    {/* Table 2 */}
-    <table className="border-collapse">
-      <tr>
-        <td>Capacity</td>
-        <th className="pl-4">2 Person</th>
-      </tr>
-      <tr>
-        <td>Gasoline</td>
-        <th className="pl-4">70L</th>
-      </tr>
-    </table>
-  </div>
-
-  {/* Footer with Pricing */}
-  <footer>
-    <div className="flex">
-      <h1 className="text-3xl font-bold">$80:00/</h1>
-      <h1 className="">day</h1>
-    </div>
-    <div>
-      <h1 className="text-gray-500">$100.00</h1> 
-    </div>
-  </footer>
-</div>
-</div>
-</div>
-
-{/* Fourth Section: User Reviews */}
-<div className=""> {/* User review section with spacing from previous content */}
-<div className="bg-gray-100 p-6 rounded-lg shadow-md space-y-10"> {/* Gray background, padding, rounded corners */}
-  {/* Review Title */}
-  <h1 className="text-xl font-semibold text-gray-800">User Reviews</h1>
-  
-  {/* Review 1 */}
-  <div className="flex items-start space-x-4">
-    <div className="w-12 h-12 bg-gray-300 rounded-full">
-      <Image src="/reviewer1.png" alt="Reviewer" width={48} height={48} className="rounded-full" />
-    </div>
-    <div className="space-y-2">
-      <div className="flex items-center space-x-2">
-        <h3 className="font-medium text-gray-900">John Doe</h3>
-        <div className="text-yellow-500">★★★★☆</div>
-      </div>
-      <p className="text-gray-600 text-sm">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod urna at magna varius, et fermentum elit congue. Ut eget nulla neque.</p>
-    </div>
-  </div>
-
-  {/* Review 2 */}
-  <div className="flex items-start space-x-4">
-    <div className="w-12 h-12 bg-gray-300 rounded-full">
-      <Image src="/reviewer2.png" alt="reviewer2" width={48} height={48} className="rounded-full" />
-    </div>
-    <div className="space-y-2">
-      <div className="flex items-center space-x-2">
-        <h3 className="font-medium text-gray-900">Jane Smith</h3>
-        <div className="text-yellow-500">★★★☆☆</div>
-      </div>
-      <p className="text-gray-600 text-sm">Excellent product! The features were just as described, and I was able to set it up easily. Highly recommend it for anyone looking for quality.</p>
-    </div>
-  </div>
-</div>
-</div>
-        {/* <Dashboard/> */}
-          </>
-    )
+  );
 }
