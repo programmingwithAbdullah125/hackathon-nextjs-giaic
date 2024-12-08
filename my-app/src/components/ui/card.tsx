@@ -4,7 +4,7 @@ import * as React from "react"
 const Card = React.forwardRef<
   HTMLDivElement,
   React.HTMLAttributes<HTMLDivElement>
->(({ className, ...props }, ref) => (
+>(({...props }, ref) => (
   <div
     ref={ref}
     className=
@@ -17,7 +17,7 @@ Card.displayName = "Card"
 const CardHeader = React.forwardRef<
   HTMLDivElement,
   React.HTMLAttributes<HTMLDivElement>
->(({ className, ...props }, ref) => (
+>(({...props }, ref) => (
   <div
     ref={ref}
     className="flex flex-col space-y-1.5 p-6"
@@ -29,7 +29,7 @@ CardHeader.displayName = "CardHeader"
 const CardTitle = React.forwardRef<
   HTMLDivElement,
   React.HTMLAttributes<HTMLDivElement>
->(({ className, ...props }, ref) => (
+>(({...props }, ref) => (
   <div
     ref={ref}
     className=
@@ -42,7 +42,7 @@ CardTitle.displayName = "CardTitle"
 const CardDescription = React.forwardRef<
   HTMLDivElement,
   React.HTMLAttributes<HTMLDivElement>
->(({ className, ...props }, ref) => (
+>(({ ...props }, ref) => (
   <div
     ref={ref}
     className="text-sm text-muted-foreground"
@@ -54,7 +54,7 @@ CardDescription.displayName = "CardDescription"
 const CardContent = React.forwardRef<
   HTMLDivElement,
   React.HTMLAttributes<HTMLDivElement>
->(({ className, ...props }, ref) => (
+>(({ ...props }, ref) => (
   <div ref={ref} className= "p-6 pt-0" {...props} />
 ))
 CardContent.displayName = "CardContent"
@@ -62,7 +62,7 @@ CardContent.displayName = "CardContent"
 const CardFooter = React.forwardRef<
   HTMLDivElement,
   React.HTMLAttributes<HTMLDivElement>
->(({ className, ...props }, ref) => (
+>(({ ...props }, ref) => (
   <div
     ref={ref}
     className="flex items-center p-6 pt-0"
