@@ -75,7 +75,7 @@ import Image from "next/image"
   <div className="text-yellow-500">★★★★☆</div>
   <div className="flex">440+ Reviewers</div>
   </div>
-  <div>NISMO has become the embodiment of Nissan's outstanding performance, inspired by the most unforgiving proving ground, the "race track"</div>
+  <div>NISMO has become the embodiment of Nissan&apos;s outstanding performance, inspired by the most unforgiving proving ground, the &quot;race track&quot;</div>
 
   {/* Tables with info */}
   <div className="flex justify-between">
